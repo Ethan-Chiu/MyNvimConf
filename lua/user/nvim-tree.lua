@@ -26,10 +26,10 @@ nvim_tree.setup({
 	diagnostics = {
 		enable = true,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			hint = Gvim.icon.nvimtree.hint,
+			info = Gvim.icon.nvimtree.info,
+			warning = Gvim.icon.nvimtree.warning,
+			error = Gvim.icon.nvimtree.error,
 		},
 	},
 	update_focused_file = {
@@ -78,24 +78,10 @@ nvim_tree.setup({
 				git = true,
 			},
 			glyphs = {
-				default = "",
-				symlink = "",
-				git = {
-					unstaged = "",
-					staged = "S",
-					unmerged = "",
-					renamed = "➜",
-					deleted = "",
-					untracked = "U",
-					ignored = "◌",
-				},
-				folder = {
-					default = "",
-					open = "",
-					empty = "",
-					empty_open = "",
-					symlink = "",
-				},
+				default = Gvim.icon.nvimtree.default,
+				symlink = Gvim.icon.nvimtree.symlink,
+				git = Gvim.icon.nvimtree.git,
+				folder = Gvim.icon.nvimtree.folder,
 			},
 		},
 	},
