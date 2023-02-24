@@ -1,7 +1,7 @@
 return {
 	alpha = {
 		find_file = "",
-		new_file = "󱪞",
+		new_file = "",
 		project = "",
 		recent = "",
 		find_text = "",
