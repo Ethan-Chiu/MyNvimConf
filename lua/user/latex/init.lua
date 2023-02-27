@@ -1,0 +1,1 @@
+require("user.latex.vimtex")

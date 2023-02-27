@@ -7,7 +7,7 @@ local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Modes
 --   normal_mode = "n",
@@ -17,7 +17,7 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Basic settings -------------------- 
+-- Basic settings --------------------
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -39,12 +39,11 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+keymap("n", "<C-S-j>", "<Esc>:m .+1<CR>==", opts)
+keymap("n", "<C-S-k>", "<Esc>:m .-2<CR>==", opts)
 
--- Toggle term 
--- <C-\> is for floating terminal 
-keymap("n", [[<A-\>]], ":ToggleTerm direction=horizontal size=18<CR>", opts)
+-- Toggle term
+-- <C-\> is for floating terminal
 
 -- Insert --
 -- Press jk fast to enter
@@ -57,16 +56,16 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "<C-S-j>", ":m .+1<CR>==", opts)
+keymap("v", "<C-S-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<C-S-j>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<C-S-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
@@ -75,12 +74,10 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-
-
--- Additional setting for plugins functions -------------------- 
+-- Additional setting for plugins functions --------------------
 
 -- Format --
-keymap("n", "<A-S-f>", ":Format<CR>", opts)
+-- keymap("n", "<A-S-f>", ":Format<CR>", opts)
 
 -- Project --
 -- built in mappings
@@ -91,4 +88,3 @@ keymap("n", "<A-S-f>", ":Format<CR>", opts)
 --[[ s	<c-s>	search_in_project_files ]]
 --[[ r	<c-r>	recent_project_files ]]
 --[[ w	<c-w>	change_working_directory ]]
-

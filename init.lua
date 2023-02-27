@@ -22,3 +22,5 @@ require("user.alpha")
 require("user.whichkey")
 require("user.autocommands")
 require("user.illuminate")
+
+require("user.latex")

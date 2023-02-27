@@ -76,6 +76,10 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-media-files.nvim")
 	-- TODO: https://github.com/nvim-telescope/telescope.nvim#suggested-dependencies
 	-- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	-- use({
+		-- "benfowler/telescope-luasnip.nvim",
+		-- module = "telescope._extensions.luasnip", -- if you wish to lazy-load
+	-- })
 
 	-- Treesitter
 	use({
@@ -118,7 +122,9 @@ return packer.startup(function(use)
 	-- Short cut reminder
 	use("folke/which-key.nvim")
 
-  use("RRethy/vim-illuminate")
+	use("RRethy/vim-illuminate")
+
+	use("lervag/vimtex")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -41,7 +41,7 @@ end
 local function resolve_mason_config(server_name)
 	local found, mason_config = pcall(require, "mason-lspconfig.server_configurations." .. server_name)
 	if not found then
-		vim.notify("mason configuration not found for " .. server_name)
+		--[[ vim.notify("mason configuration not found for " .. server_name) ]]
 		return {}
 	end
 	local server_mapping = require("mason-lspconfig.mappings.server")
@@ -49,7 +49,7 @@ local function resolve_mason_config(server_name)
 	local pkg_name = server_mapping.lspconfig_to_package[server_name]
 	local install_dir = path.package_prefix(pkg_name)
 	local conf = mason_config(install_dir)
-	vim.notify("resolved mason configuration for " .. server_name .. vim.inspect(conf))
+	--[[ vim.notify("resolved mason configuration for " .. server_name .. vim.inspect(conf)) ]]
 	return conf or {}
 end
 
