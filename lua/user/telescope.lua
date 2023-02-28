@@ -4,11 +4,11 @@ if not status_ok then
 end
 
 telescope.load_extension("media_files")
--- telescope.load_extension("luasnip")
+telescope.load_extension("luasnip")
 
 local actions = require("telescope.actions")
--- local lst = require('telescope').extensions.luasnip
--- local luasnip = require('luasnip')
+local lst = require('telescope').extensions.luasnip
+local luasnip = require('luasnip')
 
 
 telescope.setup({
@@ -99,17 +99,17 @@ telescope.setup({
 			filetypes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "rg", -- find command (defaults to `fd`)
 		},
-		-- luasnip = {
-			-- search = function(entry)
-				-- return lst.filter_null(entry.context.trigger)
-					-- .. " "
--- 					.. lst.filter_null(entry.context.name)
-	-- 				.. " "
-		-- 			.. entry.ft
-			-- 		.. " "
-				-- 	.. lst.filter_description(entry.context.name, entry.context.description)
-					-- .. lst.get_docstring(luasnip, entry.ft, entry.context)[1]
--- 		end,
-	-- 	},
+		luasnip = {
+			search = function(entry)
+				return lst.filter_null(entry.context.trigger)
+					.. " "
+					.. lst.filter_null(entry.context.name)
+	 				.. " "
+		 			.. entry.ft
+			 		.. " "
+				 	.. lst.filter_description(entry.context.name, entry.context.description)
+					.. lst.get_docstring(luasnip, entry.ft, entry.context)[1]
+      end,
+	 	},
 	},
 })

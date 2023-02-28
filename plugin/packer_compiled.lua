@@ -229,6 +229,11 @@ _G.packer_plugins = {
     path = "/Users/ethan/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
+  ["telescope-luasnip.nvim"] = {
+    loaded = true,
+    path = "/Users/ethan/.local/share/nvim/site/pack/packer/start/telescope-luasnip.nvim",
+    url = "https://github.com/benfowler/telescope-luasnip.nvim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/Users/ethan/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
