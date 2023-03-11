@@ -64,14 +64,15 @@ for _, server in pairs(installed_servers) do
 
 	server = vim.split(server, "@")[1]
 
-	if servers_set[server] then
-		local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
-		if require_ok then
-			opts = vim.tbl_deep_extend("force", conf_opts, opts)
-		end
-	else
-		local conf_opts = resolve_mason_config(server)
-		opts = vim.tbl_deep_extend("force", conf_opts, opts)
+	--[[ if servers_set[server] then ]]
+  local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
+  if require_ok then
+    opts = vim.tbl_deep_extend("force", conf_opts, opts)
+  else
+    --[[ print(server) ]]
+    local conf_opts = resolve_mason_config(server)
+    opts = vim.tbl_deep_extend("force", conf_opts, opts)
 	end
+
 	lspconfig[server].setup(opts)
 end

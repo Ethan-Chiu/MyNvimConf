@@ -77,7 +77,7 @@ return packer.startup(function(use)
 	-- TODO: https://github.com/nvim-telescope/telescope.nvim#suggested-dependencies
 	-- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use({
-	  "benfowler/telescope-luasnip.nvim",
+		"benfowler/telescope-luasnip.nvim",
 		-- module = "telescope._extensions.luasnip", -- if you wish to lazy-load
 	})
 
@@ -126,6 +126,10 @@ return packer.startup(function(use)
 
 	use("lervag/vimtex")
 
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
