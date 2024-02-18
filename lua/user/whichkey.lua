@@ -97,13 +97,15 @@ local mappings = {
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
 	["P"] = { "<cmd>Telescope projects<CR>", "Projects" },
 
-	p = {
-		name = "Packer",
-		c = { "<cmd>PackerCompile<cr>", "Compile" },
-		i = { "<cmd>PackerInstall<cr>", "Install" },
-		s = { "<cmd>PackerSync<cr>", "Sync" },
-		S = { "<cmd>PackerStatus<cr>", "Status" },
-		u = { "<cmd>PackerUpdate<cr>", "Update" },
+	y = {
+		name = "Lazy",
+		m = { "<cmd>Lazy home<cr>", "Menu" },
+    b = { ":Lazy build<space>", "Rebuild [plugin]", silent = false},
+		c = { ":Lazy check ", "Check [plugin?]", silent = false },
+		i = { ":Lazy install ", "Install [plugin?]", silent = false },
+		s = { ":Lazy sync ", "Sync [plugin?]", silent = false },
+    l = { ":Lazy load ", "Load [plugin]", silent = false},
+		u = { ":Lazy update ", "Update [plugin?]", silent = false },
 	},
 
 	g = {
