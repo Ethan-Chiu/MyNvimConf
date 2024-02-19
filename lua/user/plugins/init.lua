@@ -1,5 +1,5 @@
 
-local plugins = {
+return {
 -- Basic plugins here
 	"nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
 	"nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
@@ -60,17 +60,7 @@ local plugins = {
 	"lewis6991/gitsigns.nvim",
 
 	-- File Tree
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
-  },
+  -- nvim-tree
 
 	-- Buffer line
 	"akinsho/bufferline.nvim",
@@ -108,4 +98,4 @@ local plugins = {
 	},
 }
 
-return plugins
+
