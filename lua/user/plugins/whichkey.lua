@@ -1,9 +1,4 @@
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-	return
-end
-
-local setup = {
+local config = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
 		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -110,7 +105,7 @@ local mappings = {
 
 	g = {
 		name = "Git",
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		--[[ g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" }, ]]
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -134,27 +129,27 @@ local mappings = {
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		d = {
-			"<cmd>Telescope lsp_document_diagnostics<cr>",
-			"Document Diagnostics",
-		},
-		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-			"Workspace Diagnostics",
-		},
+		-- d = {
+		-- 	"<cmd>Telescope lsp_document_diagnostics<cr>",
+		-- 	"Document Diagnostics",
+		-- },
+		-- w = {
+		-- 	"<cmd>Telescope lsp_workspace_diagnostics<cr>",
+		-- 	"Workspace Diagnostics",
+		-- },
 		f = { "<cmd>lua vim.lsp.buf.format({async=true})<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
-		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-		j = {
-			"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-			"Next Diagnostic",
-		},
-		k = {
-			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-			"Prev Diagnostic",
-		},
+		-- I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+		-- j = {
+		-- 	"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+		-- 	"Next Diagnostic",
+		-- },
+		-- k = {
+		-- 	"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+		-- 	"Prev Diagnostic",
+		-- },
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+		-- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
@@ -162,6 +157,7 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
+
 	r = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -178,8 +174,8 @@ local mappings = {
 	t = {
 		name = "Terminal",
 		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+		--[[ u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" }, ]]
+		--[[ t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" }, ]]
 		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
@@ -195,10 +191,32 @@ local vopts = {
 	noremap = true, -- use `noremap` when creating keymaps
 	nowait = true, -- use `nowait` when creating keymaps
 }
+
 local vmappings = {
 	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment" },
 }
 
-which_key.setup(setup)
-which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
+
+local function setup()
+  local status_ok, which_key = pcall(require, "which-key")
+  if not status_ok then
+    return
+  end
+
+  which_key.setup(config)
+  which_key.register(mappings, opts)
+  which_key.register(vmappings, vopts)
+end
+
+
+return {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
+  config = setup
+}
+
+
