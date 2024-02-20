@@ -16,18 +16,26 @@ local function setup()
   local function resolve_mason_config(server_name)
     local found, mason_config = pcall(require, "mason-lspconfig.server_configurations." .. server_name)
     if not found then
-      vim.notify("mason lsp configuration not found for " .. server_name)
+      vim.notify(server_name .. ": mason lsp configuration not found", vim.log.levels.DEBUG)
       return {}
     end
     local server_mapping = require("mason-lspconfig.mappings.server")
     local path = require("mason-core.path")
     local pkg_name = server_mapping.lspconfig_to_package[server_name]
-    vim.notify(pkg_name)
     local install_dir = path.package_prefix(pkg_name)
     local conf = mason_config(install_dir)
     return conf or {}
   end
-  
+
+
+  -- install LSPs
+  local config = require("user.lsp.config")
+  mason_lspconfig.setup({
+    ensure_installed = config.insure_installed_lsp,
+    automatic_installation = true,
+  })
+
+
   -- configuration for installed LSP servers 
   local installed_servers = mason_lspconfig.get_installed_servers()
   local opts = {}
@@ -44,7 +52,7 @@ local function setup()
     if require_ok then
       -- use custom config 
       opts = vim.tbl_deep_extend("force", conf_opts, opts)
-      vim.notify("custom config for " .. server .. " is loaded")
+      vim.notify(server .. ": custom config loaded", vim.log.levels.DEBUG)
     else
       -- config from mason-lsp
       local conf_opts = resolve_mason_config(server)
@@ -57,10 +65,10 @@ local function setup()
 end
 
 return {
-	"neovim/nvim-lspconfig",
+	"neovim/nvim-lspconfig", -- LSP configurations
 	event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
     "hrsh7th/cmp-nvim-lsp",
   },
 	config = setup,

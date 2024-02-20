@@ -11,9 +11,6 @@ return {
   -- snippets
 
 	-- LSP
-  -- "williamboman/mason.nvim", -- simple to use language server installer
-	-- "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
-	-- "neovim/nvim-lspconfig", -- enable LSP
 	"jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
 
 	-- Telescope

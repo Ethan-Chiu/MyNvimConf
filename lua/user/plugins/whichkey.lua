@@ -169,6 +169,8 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
+    n = { "<cmd>Telescope notify<cr>", "Notifications"},
+    N = { "<cmd>Notifications<cr>", "Notifications logs"},
 	},
 
 	t = {
