@@ -22,5 +22,5 @@ if not status_ok then
 end
 
 
-lazy.setup({{import = "user.plugins"}})
+lazy.setup({{import = "user.plugins"}, {import = "user.plugins.lsp"}})
 

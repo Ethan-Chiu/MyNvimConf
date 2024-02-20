@@ -143,6 +143,7 @@ return {
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip", -- snippet completions
+    "L3MON4D3/LuaSnip", --snippet engine
     "rafamadriz/friendly-snippets",
   },
 	config = setup

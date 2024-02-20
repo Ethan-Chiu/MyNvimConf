@@ -8,15 +8,12 @@ return {
 
 	-- Cmp plugins
   -- nvim-cmp
-
-  -- Snippets
-	"L3MON4D3/LuaSnip", --snippet engine
-	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
+  -- snippets
 
 	-- LSP
-  "williamboman/mason.nvim", -- simple to use language server installer
-	"williamboman/mason-lspconfig.nvim", -- simple to use language server installer
-	"neovim/nvim-lspconfig", -- enable LSP
+  -- "williamboman/mason.nvim", -- simple to use language server installer
+	-- "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
+	-- "neovim/nvim-lspconfig", -- enable LSP
 	"jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
 
 	-- Telescope
