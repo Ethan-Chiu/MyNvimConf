@@ -6,11 +6,6 @@ return {
 	--[[ { "kyazdani42/nvim-web-devicons", name = ""}, ]]
 	"lewis6991/impatient.nvim", -- Speed up loading Lua modules in Neovim to improve startup time
 
-	-- Color Schemes
-	"folke/tokyonight.nvim",
-	{ "catppuccin/nvim", name = "catppuccin" },
-	-- use "lunarvim/darkplus.nvim"
-
 	-- Cmp plugins
   -- nvim-cmp
 

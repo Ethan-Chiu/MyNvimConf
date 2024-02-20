@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin-mocha"
+local colorscheme = "tokyonight"
 
 -- from tokyonight
 -- tokyonight
