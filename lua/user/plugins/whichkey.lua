@@ -50,7 +50,7 @@ local config = {
 		spacing = 3, -- spacing between columns
 		align = "left", -- align columns left, center or right
 	},
-	ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
+	ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
 	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
 	show_help = true, -- show help message on the command line when the popup is visible
 	triggers = "auto", -- automatically setup triggers
@@ -128,29 +128,39 @@ local mappings = {
 
 	l = {
 		name = "LSP",
+    -- Actions 
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		-- d = {
-		-- 	"<cmd>Telescope lsp_document_diagnostics<cr>",
-		-- 	"Document Diagnostics",
-		-- },
-		-- w = {
-		-- 	"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-		-- 	"Workspace Diagnostics",
-		-- },
 		f = { "<cmd>lua vim.lsp.buf.format({async=true})<cr>", "Format" },
-		i = { "<cmd>LspInfo<cr>", "Info" },
-		-- I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-		-- j = {
-		-- 	"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-		-- 	"Next Diagnostic",
-		-- },
-		-- k = {
-		-- 	"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-		-- 	"Prev Diagnostic",
-		-- },
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		-- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    -- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+
+    -- TODO: quick fix 
+
+    -- Diagnostics
+    d = {
+       "<cmd>lua vim.diagnostic.setloclist()<cr>",
+       "Show Line Diagnostics"
+    },
+		D = {
+			"<cmd>Telescope diagnostics bufnr=0<cr>",
+			"Document Diagnostics",
+		},
+		j = {
+			"<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>",
+			"Next Diagnostic",
+		},
+		k = {
+			"<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<cr>",
+			"Prev Diagnostic",
+		},
+    -- TODO: workspace diagnostics
+
+    -- LSP
+		i = { "<cmd>LspInfo<cr>", "Info" },
+    R = { "<cmd>LspRestart<cr>", "Restart LSP" },
+		-- I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+
+    -- Info
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",

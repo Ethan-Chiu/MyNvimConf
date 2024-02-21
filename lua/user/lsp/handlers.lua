@@ -42,6 +42,21 @@ M.setup = function()
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 		border = "rounded",
 	})
+
+
+  -- global keymap
+  local keymap = vim.keymap
+	local opts = { noremap = true, silent = true }
+
+  opts.desc = "Next diagnostic"
+	keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+
+  opts.desc = "Previous diagnostic"
+  keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+
+  opts.desc = "Show line diagnostic"
+	keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+
 end
 
 local function lsp_highlight_document(client)
@@ -61,23 +76,35 @@ local function lsp_highlight_document(client)
 end
 
 local function lsp_keymaps(bufnr)
+  local api = vim.api
 	local opts = { noremap = true, silent = true }
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+
+  opts.desc = "Go to declaration"
+	api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+
+  opts.desc = "Go to definition"
+	api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+
+  opts.desc = "Go to implementation"
+	api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+
+  opts.desc = "Go to references"
+	api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+
+  opts.desc = "Go to type"
+  api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+
+  opts.desc = "Hover info"
+	api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+
+  opts.desc = "Signature help"
+	api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]])
 end
 
+
+-- Setup on_attach
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" or client.name == "lua_ls" then
 		client.server_capabilities.documentFormattingProvider = false
@@ -86,6 +113,7 @@ M.on_attach = function(client, bufnr)
 	lsp_highlight_document(client)
 end
 
+-- Setup capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
