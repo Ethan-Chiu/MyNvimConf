@@ -32,7 +32,6 @@ return {
 
 	-- Autopair & indent indicator
 	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
 	-- Comment
 	"numToStr/Comment.nvim", -- Easily comment stuff
