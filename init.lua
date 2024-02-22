@@ -6,7 +6,6 @@ require("user.plugin-loader")
 
 require("user.lsp")
 require("user.telescope")
-require("user.autopairs")
 require("user.gitsigns")
 require("user.bufferline")
 require("user.toggleterm")

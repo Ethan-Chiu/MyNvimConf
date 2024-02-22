@@ -27,7 +27,7 @@ return {
 	-- use "nvim-treesitter/playground"
 
 	-- Autopair & indent indicator
-	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+  -- Autopair
 
 	-- Comment
 	"numToStr/Comment.nvim", -- Easily comment stuff
