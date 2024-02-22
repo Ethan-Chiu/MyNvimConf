@@ -146,7 +146,7 @@ local mappings = {
 			"Document Diagnostics",
 		},
 		j = {
-			"<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>",
+			"<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<cr>",
 			"Next Diagnostic",
 		},
 		k = {
@@ -193,6 +193,14 @@ local mappings = {
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
+
+  W = {
+    name = "Window",
+    k = { "<cmd>resize +2<cr>", "Increase height" },
+    j = { "<cmd>resize -2<cr>", "Decrease height" },
+    l = { "<cmd>vertical resize +5<cr>", "Increase width" },
+    h = { "<cmd>vertical resize -5<cr>", "Decrease width" },
+  },
 }
 
 local vopts = {
