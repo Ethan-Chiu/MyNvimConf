@@ -31,7 +31,6 @@ return {
 
 	-- Comment
 	"numToStr/Comment.nvim", -- Easily comment stuff
-	"JoosepAlviste/nvim-ts-context-commentstring",
 
 	-- Git
 	"lewis6991/gitsigns.nvim",
