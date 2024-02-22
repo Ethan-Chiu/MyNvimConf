@@ -24,10 +24,6 @@ return {
 	},
 
 	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-	},
 	-- use "nvim-treesitter/playground"
 
 	-- Autopair & indent indicator

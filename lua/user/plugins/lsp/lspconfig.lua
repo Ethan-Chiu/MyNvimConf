@@ -48,10 +48,10 @@ local function setup()
 
     server = vim.split(server, "@")[1]
 
-    local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
+    local require_ok, user_conf_opts = pcall(require, "user.lsp.settings." .. server)
     if require_ok then
       -- use custom config 
-      opts = vim.tbl_deep_extend("force", conf_opts, opts)
+      opts = vim.tbl_deep_extend("force", user_conf_opts, opts)
       vim.notify(server .. ": custom config loaded", vim.log.levels.DEBUG)
     else
       -- config from mason-lsp
