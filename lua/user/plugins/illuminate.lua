@@ -51,14 +51,19 @@ M.config = {
 	min_count_to_highlight = 1,
 }
 
-local status_ok, illuminate = pcall(require, "illuminate")
-if not status_ok then
-  return
-end
+return {
+  "RRethy/vim-illuminate",
+	event = { "BufReadPre", "BufNewFile" },
+  config = function ()
+    local status_ok, illuminate = pcall(require, "illuminate")
+    if not status_ok then
+      return
+    end
 
-local config_ok, _ = pcall(illuminate.configure, M.config)
-if not config_ok then
-  return
-end
-
-return M
+    local config_ok, _ = pcall(illuminate.configure, M.config)
+    if not config_ok then
+      vim.notify("Illuminate configure failed", vim.log.levels.WARN)
+      return
+    end
+  end
+}

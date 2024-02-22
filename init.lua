@@ -16,7 +16,6 @@ require("user.project")
 require("user.impatient")
 require("user.alpha")
 require("user.autocommands")
-require("user.illuminate")
 require("user.surround")
 
 require("user.latex")

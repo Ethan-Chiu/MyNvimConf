@@ -58,7 +58,6 @@ return {
 	-- Short cut reminder
   -- whichkey
 
-	"RRethy/vim-illuminate",
 
 	"lervag/vimtex",
 
