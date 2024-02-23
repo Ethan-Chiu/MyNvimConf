@@ -91,6 +91,7 @@ local mappings = {
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
 	["P"] = { "<cmd>Telescope projects<CR>", "Projects" },
+	["M"] = { "<cmd>Mason<CR>", "Mason" },
 
 	y = {
 		name = "Lazy",
@@ -130,7 +131,6 @@ local mappings = {
 		name = "LSP",
     -- Actions 
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		f = { "<cmd>lua vim.lsp.buf.format({async=true})<cr>", "Format" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     -- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 

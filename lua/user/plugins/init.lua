@@ -10,9 +10,6 @@ return {
   -- nvim-cmp
   -- snippets
 
-	-- LSP
-	"jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
-
 	-- Telescope
 	"nvim-telescope/telescope.nvim",
 	"nvim-telescope/telescope-media-files.nvim",
