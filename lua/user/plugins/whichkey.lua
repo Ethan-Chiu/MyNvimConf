@@ -96,11 +96,11 @@ local mappings = {
 	y = {
 		name = "Lazy",
 		m = { "<cmd>Lazy home<cr>", "Menu" },
-    b = { ":Lazy build<space>", "Rebuild [plugin]", silent = false},
+		b = { ":Lazy build<space>", "Rebuild [plugin]", silent = false },
 		c = { ":Lazy check ", "Check [plugin?]", silent = false },
 		i = { ":Lazy install ", "Install [plugin?]", silent = false },
 		s = { ":Lazy sync ", "Sync [plugin?]", silent = false },
-    l = { ":Lazy load ", "Load [plugin]", silent = false},
+		l = { ":Lazy load ", "Load [plugin]", silent = false },
 		u = { ":Lazy update ", "Update [plugin?]", silent = false },
 	},
 
@@ -129,18 +129,18 @@ local mappings = {
 
 	l = {
 		name = "LSP",
-    -- Actions 
+		-- Actions
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    -- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+		-- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 
-    -- TODO: quick fix 
+		-- TODO: quick fix
 
-    -- Diagnostics
-    d = {
-       "<cmd>lua vim.diagnostic.setloclist()<cr>",
-       "Show Line Diagnostics"
-    },
+		-- Diagnostics
+		d = {
+			"<cmd>lua vim.diagnostic.setloclist()<cr>",
+			"Show Line Diagnostics",
+		},
 		D = {
 			"<cmd>Telescope diagnostics bufnr=0<cr>",
 			"Document Diagnostics",
@@ -153,14 +153,14 @@ local mappings = {
 			"<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<cr>",
 			"Prev Diagnostic",
 		},
-    -- TODO: workspace diagnostics
+		-- TODO: workspace diagnostics
 
-    -- LSP
+		-- LSP
 		i = { "<cmd>LspInfo<cr>", "Info" },
-    R = { "<cmd>LspRestart<cr>", "Restart LSP" },
+		R = { "<cmd>LspRestart<cr>", "Restart LSP" },
 		-- I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 
-    -- Info
+		-- Info
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -173,14 +173,14 @@ local mappings = {
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    s = { "<cmd>Telescope luasnip<cr>", "Find Snippets"},
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
+		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+		s = { "<cmd>Telescope luasnip<cr>", "Find Snippets" },
+		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
-    n = { "<cmd>Telescope notify<cr>", "Notifications"},
-    N = { "<cmd>Notifications<cr>", "Notifications logs"},
+		n = { "<cmd>Telescope notify<cr>", "Notifications" },
+		N = { "<cmd>Notifications<cr>", "Notifications logs" },
 	},
 
 	t = {
@@ -194,13 +194,13 @@ local mappings = {
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
 
-  W = {
-    name = "Window",
-    k = { "<cmd>resize +2<cr>", "Increase height" },
-    j = { "<cmd>resize -2<cr>", "Decrease height" },
-    l = { "<cmd>vertical resize +5<cr>", "Increase width" },
-    h = { "<cmd>vertical resize -5<cr>", "Decrease width" },
-  },
+	W = {
+		name = "Window",
+		k = { "<cmd>resize +2<cr>", "Increase height" },
+		j = { "<cmd>resize -2<cr>", "Decrease height" },
+		l = { "<cmd>vertical resize +5<cr>", "Increase width" },
+		h = { "<cmd>vertical resize -5<cr>", "Decrease width" },
+	},
 }
 
 local vopts = {
@@ -216,27 +216,23 @@ local vmappings = {
 	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment" },
 }
 
-
 local function setup()
-  local status_ok, which_key = pcall(require, "which-key")
-  if not status_ok then
-    return
-  end
+	local status_ok, which_key = pcall(require, "which-key")
+	if not status_ok then
+		return
+	end
 
-  which_key.setup(config)
-  which_key.register(mappings, opts)
-  which_key.register(vmappings, vopts)
+	which_key.setup(config)
+	which_key.register(mappings, opts)
+	which_key.register(vmappings, vopts)
 end
 
-
 return {
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-  end,
-  config = setup
+	"folke/which-key.nvim",
+	event = "VeryLazy",
+	init = function()
+		vim.o.timeout = true
+		vim.o.timeoutlen = 300
+	end,
+	config = setup,
 }
-
-
