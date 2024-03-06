@@ -29,7 +29,7 @@ local function setup()
 
 
   -- install LSPs
-  local config = require("user.lsp.config")
+  local config = require("user.settings.lsp.config")
   mason_lspconfig.setup({
     ensure_installed = config.insure_installed_lsp,
     automatic_installation = true,
@@ -42,8 +42,8 @@ local function setup()
 
   for _, server in pairs(installed_servers) do
     opts = {
-      on_attach = require("user.lsp.handlers").on_attach,
-      capabilities = require("user.lsp.handlers").capabilities,
+      on_attach = require("user.settings.lsp.handlers").on_attach,
+      capabilities = require("user.settings.lsp.handlers").capabilities,
     }
 
     server = vim.split(server, "@")[1]
