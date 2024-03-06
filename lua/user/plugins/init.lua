@@ -43,7 +43,7 @@ return {
 	"nvim-lualine/lualine.nvim",
 
 	-- Project menu
-	"ahmedkhalf/project.nvim",
+  -- project
 
 	-- Greeter (menu) Alpha
   -- alpha
