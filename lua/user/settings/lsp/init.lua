@@ -12,4 +12,11 @@ pcall(function()
 	})
 end)
 
-require("user.lsp.handlers").setup()
+local lsp_setup_status, init_lsp = pcall(require, "user.settings.lsp.handlers")
+if not lsp_setup_status then
+  vim.notify("lsp setup failed")
+  return
+end
+
+init_lsp.setup()
+

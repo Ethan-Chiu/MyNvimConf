@@ -48,7 +48,7 @@ local function setup()
 
     server = vim.split(server, "@")[1]
 
-    local require_ok, user_conf_opts = pcall(require, "user.lsp.settings." .. server)
+    local require_ok, user_conf_opts = pcall(require, "user.settings.lsp.settings." .. server)
     if require_ok then
       -- use custom config 
       opts = vim.tbl_deep_extend("force", user_conf_opts, opts)
