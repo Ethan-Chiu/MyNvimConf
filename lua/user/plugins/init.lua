@@ -49,7 +49,7 @@ return {
 	"ahmedkhalf/project.nvim",
 
 	-- Greeter (menu) Alpha
-	{ "goolord/alpha-nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  -- alpha
 
 	-- Short cut reminder
   -- whichkey

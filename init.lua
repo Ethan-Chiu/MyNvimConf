@@ -12,7 +12,6 @@ require("user.toggleterm")
 require("user.lualine")
 require("user.project")
 require("user.impatient")
-require("user.alpha")
 require("user.autocommands")
 require("user.surround")
 
