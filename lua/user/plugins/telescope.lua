@@ -4,6 +4,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope-media-files.nvim",
 		"benfowler/telescope-luasnip.nvim",
+     "folke/trouble.nvim",
 	},
 	config = function()
 
@@ -18,6 +19,7 @@ return {
 		local actions = require("telescope.actions")
 		local lst = require("telescope").extensions.luasnip
 		local luasnip = require("luasnip")
+    local trouble = require("trouble.providers.telescope")
 
 		telescope.setup({
 			defaults = {
@@ -55,7 +57,9 @@ return {
 						["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 						["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["<C-l>"] = actions.complete_tag,
-						["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+						["<C-?>"] = actions.which_key, -- keys from pressing <C-/>
+
+            ["<c-o>"] = trouble.open_with_trouble,
 					},
 
 					n = {
@@ -88,6 +92,8 @@ return {
 						["<PageDown>"] = actions.results_scrolling_down,
 
 						["?"] = actions.which_key,
+
+            ["<c-o>"] = trouble.open_with_trouble,
 					},
 				},
 			},

@@ -202,6 +202,10 @@ local mappings = {
 		l = { "<cmd>vertical resize +5<cr>", "Increase width" },
 		h = { "<cmd>vertical resize -5<cr>", "Decrease width" },
 	},
+
+  x = {
+    name = "Trouble",
+  }
 }
 
 local vopts = {
