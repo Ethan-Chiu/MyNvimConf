@@ -5,5 +5,5 @@ require("user.keymaps")
 require("user.plugin-loader")
 
 require("user.settings.lsp.init")
-require("user.autocommands")
+require("user.settings.autocommands")
 
