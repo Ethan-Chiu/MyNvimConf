@@ -8,7 +8,6 @@ require("user.settings.lsp.init")
 require("user.gitsigns")
 require("user.bufferline")
 require("user.lualine")
-require("user.impatient")
 require("user.autocommands")
 require("user.surround")
 
