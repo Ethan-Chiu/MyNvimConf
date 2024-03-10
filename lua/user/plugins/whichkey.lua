@@ -205,6 +205,10 @@ local mappings = {
 
   x = {
     name = "Trouble",
+  },
+
+  C = {
+    name = "ChatGPT",
   }
 }
 

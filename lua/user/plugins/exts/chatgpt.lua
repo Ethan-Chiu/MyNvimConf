@@ -6,15 +6,47 @@ return {
 		"nvim-lua/plenary.nvim",
 		"folke/trouble.nvim",
 		"nvim-telescope/telescope.nvim",
+		"akinsho/toggleterm.nvim",
 	},
 	config = function()
-    local key_cmd = "pass show dev/openai/chatgpt"
-    local chatgpt = require("chatgpt")
+		local key_cmd = "pass show dev/openai/chatgpt"
+		local chatgpt = require("chatgpt")
 		local status_ok, _ = pcall(chatgpt.setup, {
 			api_key_cmd = key_cmd,
 		})
-    if not status_ok then 
-      vim.notify("ChatGPT api not available", vim.log.levels.WARN)
-    end
+		if not status_ok then
+			vim.notify("ChatGPT api not available", vim.log.levels.WARN)
+		end
+
+		vim.keymap.set("n", "<leader>Cc", "<cmd>ChatGPT<cr>", { desc = "ChatGPT" })
+
+		vim.keymap.set("n", "<leader>Cp", "<cmd>ChatGPTActAs<cr>", { desc = "ChatGPT Act as" })
+
+		local Terminal = require("toggleterm.terminal").Terminal
+		--[[ local show_pass_cmd = 'TermExec cmd="' .. key_cmd .. '" name=ChatGPT_Password' ]]
+		local pass_show = Terminal:new({
+			cmd = key_cmd,
+      direction = "float",
+			hidden = false,
+			on_close = function()
+				local status_after_ok, _ = pcall(chatgpt.setup, {
+					api_key_cmd = key_cmd,
+				})
+				if not status_after_ok then
+					vim.notify("ChatGPT api not available", vim.log.levels.WARN)
+				end
+			end,
+		})
+
+		function _pass_show_toggle()
+			pass_show:toggle()
+		end
+
+		vim.keymap.set(
+			"n",
+			"<leader>CP",
+			"<cmd>lua _pass_show_toggle()<CR>",
+			{ desc = "ChatGPT Password", noremap = true, silent = true }
+		)
 	end,
 }

@@ -19,6 +19,7 @@ local function setup()
       vim.notify(server_name .. ": mason lsp configuration not found", vim.log.levels.DEBUG)
       return {}
     end
+    vim.notify(server_name .. ": mason lsp configuration found", vim.log.levels.DEBUG)
     local server_mapping = require("mason-lspconfig.mappings.server")
     local path = require("mason-core.path")
     local pkg_name = server_mapping.lspconfig_to_package[server_name]
