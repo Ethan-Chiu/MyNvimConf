@@ -22,7 +22,7 @@ return {
   -- Autopair
 
 	-- Comment
-	"numToStr/Comment.nvim", -- Easily comment stuff
+	-- "numToStr/Comment.nvim", -- Easily comment stuff
 
 	-- Git
   -- gitsigns

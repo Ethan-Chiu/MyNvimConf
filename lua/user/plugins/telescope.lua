@@ -19,7 +19,7 @@ return {
 		local actions = require("telescope.actions")
 		local lst = require("telescope").extensions.luasnip
 		local luasnip = require("luasnip")
-    local trouble = require("trouble.providers.telescope")
+    local trouble = require("trouble.sources.telescope")
 
 		telescope.setup({
 			defaults = {
@@ -59,7 +59,7 @@ return {
 						["<C-l>"] = actions.complete_tag,
 						["<C-?>"] = actions.which_key, -- keys from pressing <C-/>
 
-            ["<c-o>"] = trouble.open_with_trouble,
+            ["<c-o>"] = trouble.open(),
 					},
 
 					n = {
@@ -93,7 +93,7 @@ return {
 
 						["?"] = actions.which_key,
 
-            ["<c-o>"] = trouble.open_with_trouble,
+            ["<c-o>"] = trouble.open(),
 					},
 				},
 			},
