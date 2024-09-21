@@ -62,21 +62,21 @@ local config = {
 local mappings = {
   nowait = true,
   remap = false,
-  { "<leader>/", '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', desc = "Comment" },
+  { "<leader>/", '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', desc = "Comment", icon="" },
   { "<leader>F", "<cmd>Telescope live_grep theme=ivy<CR>", desc = "Find Text" },
-  { "<leader>M", "<cmd>Mason<CR>", desc = "Mason" },
-  { "<leader>P", "<cmd>Telescope projects<CR>", desc = "Projects" },
-  { "<leader>a", "<cmd>Alpha<cr>", desc = "Alpha" },
+  { "<leader>M", "<cmd>Mason<CR>", desc = "Mason", icon="󱌢" },
+  { "<leader>P", "<cmd>Telescope projects<CR>", desc = "Projects", icon=Gvim.icon.alpha.project },
+  { "<leader>a", "<cmd>Alpha<cr>", desc = "Alpha", icon="󰀫" },
   { "<leader>b", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Buffers" },
-  { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Explorer" },
+  { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Explorer", icon="󰙅" },
   { "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", desc = "Find files" },
-  { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
+  { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight", icon="󰸱" },
   { "<leader>q", "<cmd>q!<CR>", desc = "Quit" },
-  { "<leader>s", "<cmd>w!<CR>", desc = "Save" },
-  { "<leader>u", "<cmd>UndotreeToggle<CR>", desc = "Undo Tree" },
+  { "<leader>s", "<cmd>w!<CR>", desc = "Save", icon="" },
+  { "<leader>u", "<cmd>UndotreeToggle<CR>", desc = "Undo Tree", icon="" },
   { "<leader>w", "<cmd>Bdelete!<CR>", desc = "Close Buffer" },
 
-  { "<leader>C", group = "ChatGPT" },
+  { "<leader>C", group = "ChatGPT", icon="" },
 
   { "<leader>W", group = "Window" },
   { "<leader>Wh", "<cmd>vertical resize -5<cr>", desc = "Decrease width" },
@@ -98,7 +98,7 @@ local mappings = {
   { "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", desc = "Stage Hunk" },
   { "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", desc = "Undo Stage Hunk" },
 
-  { "<leader>l", group = "LSP" },
+  { "<leader>l", group = "LSP", icon="󰞋" },
   { "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
   { "<leader>lR", "<cmd>LspRestart<cr>", desc = "Restart LSP" },
   { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
@@ -130,7 +130,7 @@ local mappings = {
   { "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", desc = "Python" },
   { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
 
-  { "<leader>x", group = "Trouble" },
+  { "<leader>x", group = "Trouble", icon="󰒑" },
 
   { "<leader>y", group = "Lazy" },
   { "<leader>yb", ":Lazy build<space>", desc = "Rebuild [plugin]", silent = false },
