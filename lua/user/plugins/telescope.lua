@@ -4,7 +4,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope-media-files.nvim",
 		"benfowler/telescope-luasnip.nvim",
-     "folke/trouble.nvim",
+    "folke/trouble.nvim",
 	},
 	config = function()
 
@@ -59,7 +59,7 @@ return {
 						["<C-l>"] = actions.complete_tag,
 						["<C-?>"] = actions.which_key, -- keys from pressing <C-/>
 
-            ["<c-o>"] = trouble.open(),
+            ["<c-o>"] = trouble.open,
 					},
 
 					n = {
@@ -93,7 +93,7 @@ return {
 
 						["?"] = actions.which_key,
 
-            ["<c-o>"] = trouble.open(),
+            ["<c-o>"] = trouble.open,
 					},
 				},
 			},
