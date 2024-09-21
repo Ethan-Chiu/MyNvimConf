@@ -80,6 +80,18 @@ return {
       vim.keymap.set("n", "s", api.node.run.system, opts("Run System"))
       vim.keymap.set("n", "S", api.tree.search_node, opts("Search"))
       vim.keymap.set("n", "U", api.tree.toggle_custom_filter, opts("Toggle Hidden"))
+      vim.keymap.set("n", "w", function ()
+        local winid = api.tree.winid()
+        local winwidth = vim.fn.winwidth(winid)
+        local original_width = require("nvim-tree").config.view.width
+          if winwidth ~= original_width then
+            api.tree.resize({width = original_width})
+          else
+             api.tree.resize({width = {}})
+          end
+        end,
+        opts("Window Resize")
+      )
       vim.keymap.set("n", "W", api.tree.collapse_all, opts("Collapse"))
       vim.keymap.set("n", "x", api.fs.cut, opts("Cut"))
       vim.keymap.set("n", "y", api.fs.copy.filename, opts("Copy Name"))
