@@ -4,6 +4,9 @@ return {
 	"nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
 	"nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
 
+  -- Icons
+  { 'echasnovski/mini.icons', version = false },
+
 	-- Cmp plugins
   -- nvim-cmp
   -- snippets
