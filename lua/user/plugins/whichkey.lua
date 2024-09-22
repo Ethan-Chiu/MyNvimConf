@@ -78,6 +78,8 @@ local mappings = {
 
   { "<leader>C", group = "ChatGPT", icon="" },
 
+  { "<leader>S", group = "Session", icon="" },
+
   { "<leader>W", group = "Window" },
   { "<leader>Wh", "<cmd>vertical resize -5<cr>", desc = "Decrease width" },
   { "<leader>Wj", "<cmd>resize -2<cr>", desc = "Decrease height" },
