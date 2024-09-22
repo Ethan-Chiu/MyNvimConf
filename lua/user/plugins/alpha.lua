@@ -43,7 +43,7 @@ return {
 		dashboard.section.buttons.val = {
 			dashboard.button("f", Gvim.icon.alpha.find_file .. "  Find file", ":Telescope find_files <CR>"),
 			dashboard.button("e", Gvim.icon.alpha.new_file .. "  New file", ":ene <BAR> startinsert <CR>"), --
-			dashboard.button("p", Gvim.icon.alpha.project .. "  Find project", ":Telescope projects <CR>"), --
+			dashboard.button("p", Gvim.icon.alpha.project .. "  Find project", ":Telescope projects_session <CR>"), --
 			dashboard.button("r", Gvim.icon.alpha.recent .. "  Recently used files", ":Telescope oldfiles <CR>"),
 			dashboard.button("t", Gvim.icon.alpha.find_text .. "  Find text", ":Telescope live_grep <CR>"),
 			dashboard.button("c", Gvim.icon.alpha.setting .. "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
