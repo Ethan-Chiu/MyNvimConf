@@ -72,6 +72,7 @@ local mappings = {
   { "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", desc = "Find files" },
   { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight", icon="󰸱" },
   { "<leader>q", "<cmd>q!<CR>", desc = "Quit" },
+  { "<leader>c", "<cmd>xa<CR>", desc = "Save & Quit"},
   { "<leader>s", "<cmd>w!<CR>", desc = "Save", icon="" },
   { "<leader>u", "<cmd>UndotreeToggle<CR>", desc = "Undo Tree", icon="" },
   { "<leader>w", "<cmd>Bdelete!<CR>", desc = "Close Buffer" },
