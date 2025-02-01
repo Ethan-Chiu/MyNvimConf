@@ -66,7 +66,6 @@ You are an excellent programming expert.
         timeout = 30000, -- Timeout in milliseconds
         temperature = 0,
         max_tokens = 4096,
-        ["local"] = false,
       },
       copilot = {
         endpoint = "https://api.githubcopilot.com",
@@ -83,7 +82,6 @@ You are an excellent programming expert.
         timeout = 30000, -- Timeout in milliseconds
         temperature = 0,
         max_tokens = 8000,
-        ["local"] = false,
       },
       gemini = {
         endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
@@ -91,7 +89,6 @@ You are an excellent programming expert.
         timeout = 30000, -- Timeout in milliseconds
         temperature = 0,
         max_tokens = 4096,
-        ["local"] = false,
       },
       behaviour = {
         auto_suggestions = false, -- Experimental stage
