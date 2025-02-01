@@ -81,6 +81,8 @@ local mappings = {
 
   { "<leader>S", group = "Session", icon="" },
 
+  { "<leader>n", group = "Notifications", icon="󰋽" },
+
   { "<leader>W", group = "Window" },
   { "<leader>Wh", "<cmd>vertical resize -5<cr>", desc = "Decrease width" },
   { "<leader>Wj", "<cmd>resize -2<cr>", desc = "Decrease height" },
@@ -133,6 +135,8 @@ local mappings = {
 
   { "<leader>x", group = "Trouble", icon="󰒑" },
 
+  { "<leader>a", group = "Avante", icon="󱃶" },
+
   { "<leader>y", group = "Lazy" },
   { "<leader>yb", ":Lazy build<space>", desc = "Rebuild [plugin]", silent = false },
   { "<leader>yc", ":Lazy check ", desc = "Check [plugin?]", silent = false },
@@ -141,6 +145,10 @@ local mappings = {
   { "<leader>ym", "<cmd>Lazy home<cr>", desc = "Menu" },
   { "<leader>ys", ":Lazy sync ", desc = "Sync [plugin?]", silent = false },
   { "<leader>yu", ":Lazy update ", desc = "Update [plugin?]", silent = false },
+
+  { "<leader>T", group = "Toggle Setting", icon="" },
+  
+  { "<leader>z", group = "Zen", icon="" },
 }
 
 local old_mappings = {
