@@ -116,13 +116,11 @@ local mappings = {
   { "<leader>r", group = "Search" },
   { "<leader>rC", "<cmd>Telescope commands<cr>", desc = "Commands" },
   { "<leader>rM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
-  { "<leader>rN", "<cmd>Notifications<cr>", desc = "Notifications logs" },
   { "<leader>rR", "<cmd>Telescope registers<cr>", desc = "Registers" },
   { "<leader>rb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
   { "<leader>rc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
   { "<leader>rh", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
   { "<leader>rk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
-  { "<leader>rn", "<cmd>Telescope notify<cr>", desc = "Notifications" },
   { "<leader>rr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
   { "<leader>rs", "<cmd>Telescope luasnip<cr>", desc = "Find Snippets" },
 
