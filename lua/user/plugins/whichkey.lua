@@ -127,11 +127,11 @@ local mappings = {
   { "<leader>rs", "<cmd>Telescope luasnip<cr>", desc = "Find Snippets" },
 
   { "<leader>t", group = "Terminal" },
-  { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float" },
+  { "<leader>tf", "<cmd>lua require('user.plugins.utils.terminal').floating_term_toggle('<c-\\>')<cr>", desc = "Float" },
   { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal" },
+  { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
   { "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", desc = "Node" },
   { "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", desc = "Python" },
-  { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
 
   { "<leader>x", group = "Trouble", icon="󰒑" },
 
