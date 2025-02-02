@@ -59,6 +59,10 @@ end
 
 return {
 	"nvim-lualine/lualine.nvim",
+  dependencies = {
+    -- display macro recording
+    { "yavorski/lualine-macro-recording.nvim" }
+  },
 	config = function()
 		local status_ok, lualine = pcall(require, "lualine")
 		if not status_ok then
@@ -81,9 +85,9 @@ return {
 				lualine_c = {
           function()
             return require('auto-session.lib').current_session_name(true)
-          end
+          end,
+          "macro_recording", "%S",
         },
-				-- lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_x = { diff, spaces, "encoding", filetype },
 				lualine_y = { location },
 				lualine_z = { progress },
