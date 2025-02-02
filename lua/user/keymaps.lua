@@ -25,9 +25,6 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Close buffer
--- keymap("n", "<C-w>", ":Bdelete!<CR>", opts)
-
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -69,14 +66,3 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
--- Additional setting for plugins functions --------------------
-
--- Project --
--- built in mappings
---  (n) ( i ) (    actions     )
---[[ f	<c-f>	find_project_files ]]
---[[ b	<c-b>	browse_project_files ]]
---[[ d	<c-d>	delete_project ]]
---[[ s	<c-s>	search_in_project_files ]]
---[[ r	<c-r>	recent_project_files ]]
---[[ w	<c-w>	change_working_directory ]]
