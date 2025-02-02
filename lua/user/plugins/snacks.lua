@@ -8,7 +8,16 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = dashboard_config,
-    indent = { enabled = false },
+    indent = {
+      enabled = true,
+      char = "▎",
+      scope = {
+        enabled = true, -- enable highlighting the current scope
+        priority = 200,
+        char = "▎",
+        underline = true, -- underline the start of the scope
+      },
+    },
     input = { enabled = true },
     notifier = {
       enabled = true,
