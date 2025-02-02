@@ -24,4 +24,21 @@ function M.floating_term_toggle(key)
 	})
 end
 
+function M.bottom_term_toggle()
+  Snacks.terminal()
+end
+
+function M.horizontal_term()
+  Snacks.terminal.open()
+end
+
+function M.vertical_term()
+  Snacks.terminal.open(nil, {
+    win = {
+      position = "right",
+    },
+  })
+end
+
+
 return M

@@ -128,10 +128,9 @@ local mappings = {
 
   { "<leader>t", group = "Terminal" },
   { "<leader>tf", "<cmd>lua require('user.plugins.utils.terminal').floating_term_toggle('<c-\\>')<cr>", desc = "Float" },
-  { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal" },
-  { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
-  { "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", desc = "Node" },
-  { "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", desc = "Python" },
+  { "<leader>tb", "<cmd>lua require('user.plugins.utils.terminal').bottom_term_toggle()<cr>", desc = "Bottom" },
+  { "<leader>th", "<cmd>lua require('user.plugins.utils.terminal').horizontal_term()<cr>", desc = "Horizontal" },
+  { "<leader>tv", "<cmd>lua require('user.plugins.utils.terminal').vertical_term()<cr>", desc = "Vertical" },
 
   { "<leader>x", group = "Trouble", icon="󰒑" },
 
