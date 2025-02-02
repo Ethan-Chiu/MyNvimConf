@@ -18,6 +18,7 @@ M.config = {
 		"dirvish",
 		"fugitive",
 		"alpha",
+    "snacks_dashboard",
 		"NvimTree",
 		"toggleterm",
 		"TelescopePrompt",

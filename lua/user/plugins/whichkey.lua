@@ -66,7 +66,7 @@ local mappings = {
   { "<leader>F", "<cmd>Telescope live_grep theme=ivy<CR>", desc = "Find Text" },
   { "<leader>M", "<cmd>Mason<CR>", desc = "Mason", icon="󱌢" },
   { "<leader>P", "<cmd>Telescope projects_session<CR>", desc = "Projects", icon=Gvim.icon.alpha.project },
-  { "<leader>A", "<cmd>Alpha<cr>", desc = "Alpha", icon="󰀫" },
+  { "<leader>D", "<cmd>lua Snacks.dashboard()<CR>", desc = "Dashboard", icon="󰕮" },
   { "<leader>b", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "Buffers" },
   { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Explorer", icon="󰙅" },
   { "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", desc = "Find files" },

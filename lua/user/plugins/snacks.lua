@@ -1,3 +1,5 @@
+local dashboard_config = require("user.plugins.utils.dashboard")
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -5,7 +7,7 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = false },
+    dashboard = dashboard_config,
     indent = { enabled = false },
     input = { enabled = true },
     notifier = {
