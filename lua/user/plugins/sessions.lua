@@ -29,15 +29,24 @@ return {
 				-- },
 			},
 		},
+		bypass_save_filetypes = { "snacks_dashboard", "dashboard", "NvimTree", "alpha", "netrw" },
+		cwd_change_handling = true,
 		-- Hooks
+		pre_save_cmds = {
+			"NvimTreeClose", -- Close NERDTree before saving session
+		},
+
+		post_restore_cmds = {
+			"NvimTreeOpen",
+		},
+
 		pre_cwd_changed_cmds = {
-			"tabdo NERDTreeClose", -- Close NERDTree before saving session
+			"NvimTreeClose", -- Close NERDTree before saving session
 		},
 		post_cwd_changed_cmds = {
 			function()
 				require("lualine").refresh() -- example refreshing the lualine status line _after_ the cwd changes
 			end,
 		},
-		bypass_save_filetypes = { "alpha", "netrw" },
 	},
 }
