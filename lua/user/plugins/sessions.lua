@@ -30,14 +30,14 @@ return {
 			},
 		},
 		bypass_save_filetypes = { "snacks_dashboard", "dashboard", "NvimTree", "alpha", "netrw" },
-		cwd_change_handling = true,
+		cwd_change_handling = false,
 		-- Hooks
 		pre_save_cmds = {
 			"NvimTreeClose", -- Close NERDTree before saving session
 		},
 
 		post_restore_cmds = {
-			"NvimTreeOpen",
+			-- "NvimTreeOpen",
 		},
 
 		pre_cwd_changed_cmds = {
