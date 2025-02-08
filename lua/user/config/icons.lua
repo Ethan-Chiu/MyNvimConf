@@ -1,12 +1,17 @@
 return {
-	alpha = {
-		find_file = "",
-		new_file = "",
+	dashboard = {
+		find_file = "",
+		new_file = "",
 		project = "",
-		recent = "",
-		find_text = "",
+		recent = "",
+		find_text = "",
 		setting = "",
+    reload_session = "",
+    lazy = "󰒲",
+    quit = "",
 		close = "",
+    recent_projects = "",
+    git_status = "",
 	},
 	nvimtree = {
 		hint = "",

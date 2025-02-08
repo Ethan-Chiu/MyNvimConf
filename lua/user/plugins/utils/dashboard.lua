@@ -62,26 +62,20 @@ return
 		-- When using a function, the `items` argument are the default keymaps.
 		---@type snacks.dashboard.Item[]
 		keys = {
-			{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-			--[[ { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" }, ]]
-			{ icon = " ", key = "F", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-			{ icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+			{ icon = Gvim.icon.dashboard.find_file, key = "f", desc = " Find File", action = ":lua Snacks.dashboard.pick('files')" },
+			{ icon = Gvim.icon.dashboard.new_file, key = "n", desc = " New File", action = ":ene | startinsert" },
+      { icon = Gvim.icon.dashboard.project, key = "p", desc = " Find Project", action = ":Telescope projects_session" },
+			{ icon = Gvim.icon.dashboard.recent, key = "r", desc = " Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+			{ icon = Gvim.icon.dashboard.find_text, key = "F", desc = " Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
 			{
-				icon = " ",
+				icon = Gvim.icon.dashboard.setting,
 				key = "c",
-				desc = "Config",
+				desc = " Config",
 				action = ":e ~/.config/nvim/init.lua",
 			},
-			{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
-			{ icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-			{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
-			-- 			dashboard.button("f", Gvim.icon.alpha.find_file .. "  Find file", ":Telescope find_files <CR>"),
-			-- 			dashboard.button("e", Gvim.icon.alpha.new_file .. "  New file", ":ene <BAR> startinsert <CR>"), --
-			-- 			dashboard.button("p", Gvim.icon.alpha.project .. "  Find project", ":Telescope projects_session <CR>"), --
-			-- 			dashboard.button("r", Gvim.icon.alpha.recent .. "  Recently used files", ":Telescope oldfiles <CR>"),
-			-- 			dashboard.button("t", Gvim.icon.alpha.find_text .. "  Find text", ":Telescope live_grep <CR>"),
-			-- 			dashboard.button("c", Gvim.icon.alpha.setting .. "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
-			-- 			dashboard.button("q", Gvim.icon.alpha.close .. "  Quit Neovim", ":qa<CR>"),
+			{ icon = Gvim.icon.dashboard.reload_session, key = "s", desc = " Restore Session", section = "session" },
+			{ icon = Gvim.icon.dashboard.lazy, key = "L", desc = " Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+			{ icon = Gvim.icon.dashboard.quit, key = "q", desc = " Quit", action = ":qa" },
 		},
 		-- Used by the `header` section
 		header = greeter1(),
@@ -89,12 +83,12 @@ return
 	sections = {
 		{ section = "header" },
 		{ section = "keys", gap = 1, padding = 1 },
-		{ pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-		{ pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+		{ pane = 2, icon = Gvim.icon.dashboard.recent, title = " Recent Files", section = "recent_files", indent = 2, padding = 1 },
+		{ pane = 2, icon = Gvim.icon.dashboard.recent_projects, title = " Projects", section = "projects", indent = 2, padding = 1 },
 		{
 			pane = 2,
-			icon = " ",
-			title = "Git Status",
+			icon = Gvim.icon.dashboard.git_status,
+			title = " Git Status",
 			section = "terminal",
 			enabled = function()
 				return Snacks.git.get_root() ~= nil
