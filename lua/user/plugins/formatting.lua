@@ -29,6 +29,10 @@ return {
 			-- },
 		})
 
+		conform.formatters.clang_format = {
+			append_args = { '--style={BasedOnStyle: LLVM, IndentWidth: 4}' },
+		}
+
 		vim.keymap.set({ "n", "v" }, "<leader>lf", function()
 			conform.format({
 				lsp_fallback = true,

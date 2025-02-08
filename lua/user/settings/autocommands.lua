@@ -115,11 +115,22 @@ vim.api.nvim_create_autocmd("TermOpen", {
 		-- Check if the buffer name corresponds to lazygit
 		if bufname:match("lazygit") then
 			-- Disable keymaps for lazygit
-      vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', '<Nop>', { noremap = true, silent = true })
-      vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', '<Nop>', { noremap = true, silent = true })
-      vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', '<Nop>', { noremap = true, silent = true })
-      vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', '<Nop>', { noremap = true, silent = true })
+			vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", "<Nop>", { noremap = true, silent = true })
+			vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", "<Nop>", { noremap = true, silent = true })
+			vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", "<Nop>", { noremap = true, silent = true })
+			vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", "<Nop>", { noremap = true, silent = true })
 		end
 	end,
 	group = lazygit_group,
+})
+
+--------------------------------------------------
+-- Define an augroup for lazygit keymap settings
+--------------------------------------------------
+local c_indent_setting_group = vim.api.nvim_create_augroup("_c_indent_setting_group", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "c", "cpp" }, -- apply to C and C++ filetypes
+	group = c_indent_setting_group,
+	command = "setlocal expandtab shiftwidth=4 softtabstop=4",
 })

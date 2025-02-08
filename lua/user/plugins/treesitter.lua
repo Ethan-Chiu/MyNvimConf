@@ -9,7 +9,7 @@ return {
     end
 
     configs.setup({
-      ensure_installed = { "bash", "c", "javascript", "json", "lua", "python", "typescript", "tsx", "css", "rust", "yaml", "markdown", "markdown_inline", "vim" }, -- one of "all" or a list of languages
+      ensure_installed = { "bash", "c", "cpp", "javascript", "json", "lua", "python", "typescript", "tsx", "css", "rust", "yaml", "markdown", "markdown_inline", "vim" }, -- one of "all" or a list of languages
       sync_install = false,
       ignore_install = { "" }, -- List of parsers to ignore installing
       highlight = {
