@@ -30,7 +30,9 @@ return {
 		})
 
 		conform.formatters.clang_format = {
-			append_args = { '--style={BasedOnStyle: LLVM, IndentWidth: 4}' },
+			append_args = {
+				"--style={BasedOnStyle: LLVM, IndentWidth: 4, ColumnLimit: 80, AllowShortFunctionsOnASingleLine: Empty}",
+			},
 		}
 
 		vim.keymap.set({ "n", "v" }, "<leader>lf", function()
